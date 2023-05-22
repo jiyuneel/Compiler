@@ -4,7 +4,7 @@ import pandas as pd
 table = pd.read_csv('SLR parsing table.csv', header=2, index_col=0)
 terminal = table.columns[:22]
 
-f = open('CFG.txt', 'r')
+f = open('context_free_grammar.txt', 'r')
 lines = f.readlines()
 f.close()
 cfg = []
@@ -16,7 +16,6 @@ input = f.read()
 f.close()
 input = input.split()
 input.append('$')
-print(input)
 
 stack = [0]
 idx = 0
@@ -24,6 +23,9 @@ idx = 0
 while True:
     currState = stack[-1]
     nextSymbol = input[idx]
+
+    # print(stack)
+    # print(nextSymbol)
 
     if nextSymbol in terminal:
         # ACTION
@@ -42,14 +44,13 @@ while True:
         elif action[0] == 'r':
             # REDUCTION
             g = cfg[int(action[1:])].split()
-            for _ in range(len(g) - 2):
-                stack.pop()
+            if g[-1] != "''":
+                for _ in range(len(g) - 2):
+                    stack.pop()
             
             currState = stack[-1]
             goto = table.at[currState, g[0]]
             stack.append(int(goto))
-
-        # else reject
 
     elif nextSymbol not in terminal:
         print("Reject: error in line", sys._getframe().f_lineno - 1)
