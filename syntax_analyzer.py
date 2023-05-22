@@ -24,17 +24,16 @@ while True:
     currState = stack[-1]
     nextSymbol = input[idx]
 
-    # print(stack)
-    # print(nextSymbol)
-
     if nextSymbol in terminal:
         # ACTION
         action = table.at[currState, nextSymbol]
         if action == 'acc':
-            print("accept!")
+            print("Accept!")
             break
         elif table.isnull().at[currState, nextSymbol]:
-            print("reject")
+            line = str(sys._getframe().f_lineno - 1)
+            print("Reject!")
+            print("SyntaxError: invalid token set (line", line + ")")
             break
 
         if action[0] == 's':
@@ -47,12 +46,11 @@ while True:
             if g[-1] != "''":
                 for _ in range(len(g) - 2):
                     stack.pop()
-            
-            currState = stack[-1]
-            goto = table.at[currState, g[0]]
+            goto = table.at[stack[-1], g[0]]
             stack.append(int(goto))
 
     elif nextSymbol not in terminal:
-        print("Reject: error in line", sys._getframe().f_lineno - 1)
-        print("InputError: invalid input token", "'" + nextSymbol + "'")
+        line = str(sys._getframe().f_lineno - 1)
+        print("Reject!")
+        print("InputError: invalid input token", "'" + nextSymbol + "' (line", line + ")")
         break
