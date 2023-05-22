@@ -20,7 +20,7 @@ FACTOR -> num
 FDECL -> vtype id lparen ARG rparen lbrace BLOCK RETURN rbrace
 ARG -> vtype id MOREARGS
 ARG -> ''
-MOREARGS -> comma vtype id MOREARGES
+MOREARGS -> comma vtype id MOREARGS
 MOREARGS -> ''
 BLOCK -> STMT BLOCK
 BLOCK -> ''
