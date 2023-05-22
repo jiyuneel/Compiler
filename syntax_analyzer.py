@@ -2,7 +2,8 @@ import pandas as pd
 # from collections import deque
 
 table = pd.read_csv('SLR parsing table.csv', header=2, index_col=0)
-terminal = table.columns[:23]
+terminal = table.columns[:22]
+
 # nonterminal = table.columns[23:]
 
 f = open('CFG.txt', 'r')
