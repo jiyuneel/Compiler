@@ -3,7 +3,6 @@ import pandas as pd
 
 table = pd.read_csv('SLR parsing table.csv', header=2, index_col=0)
 terminal = table.columns[:22]
-# nonterminal = table.columns[22:]
 
 f = open('CFG.txt', 'r')
 lines = f.readlines()
@@ -26,17 +25,14 @@ while True:
     currState = stack[-1]
     nextSymbol = input[idx]
 
-    # print(stack)
-    # print(nextSymbol)
-
     if nextSymbol in terminal:
         # ACTION
         action = table.at[currState, nextSymbol]
         if action == 'acc':
-            print('accept!')
+            print("accept!")
             break
         elif table.isnull().at[currState, nextSymbol]:
-            print('reject')
+            print("reject")
             break
 
         if action[0] == 's':
@@ -55,5 +51,7 @@ while True:
 
         # else reject
 
-    # elif nextSymbol in nonterminal:
-        # reject
+    elif nextSymbol not in terminal:
+        print("Reject: error in line", sys._getframe().f_lineno - 1)
+        print("InputError: invalid input token", "'" + nextSymbol + "'")
+        break
