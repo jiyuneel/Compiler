@@ -1,10 +1,9 @@
+import sys
 import pandas as pd
-# from collections import deque
 
 table = pd.read_csv('SLR parsing table.csv', header=2, index_col=0)
 terminal = table.columns[:22]
-
-# nonterminal = table.columns[23:]
+# nonterminal = table.columns[22:]
 
 f = open('CFG.txt', 'r')
 lines = f.readlines()
@@ -13,8 +12,12 @@ cfg = []
 for line in lines:
     cfg.append(line.strip())
 
-input = 'vtype id semi semi $'
+f = open(sys.argv[1], 'r')
+input = f.read()
+f.close()
 input = input.split()
+input.append('$')
+print(input)
 
 stack = [0]
 idx = 0
