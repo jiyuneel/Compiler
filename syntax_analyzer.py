@@ -31,6 +31,8 @@ reduceRule = []
 
 # parse tree 출력 함수
 def printTree():
+    sys.stdout = open('output.txt', 'w', encoding='utf-8')
+    print("Accept!")
     for rule in reduceRule:
         # parent node 구하기
         for i in reversed(range(len(treeNode))):
@@ -47,6 +49,7 @@ def printTree():
         if node.name == "''":
             node.name = "ε"
         print("%s%s" % (pre, node.name))
+    sys.stdout.close()
 
 
 # 초기 설정
@@ -67,14 +70,14 @@ while True:
 
         # accept인 경우
         if action == 'acc':
-            print("Accept!")
             printTree()
             break
         # reject인 경우
         elif table.isnull().at[currState, nextSymbol]:
-            line = str(sys._getframe().f_lineno - 1)
+            sys.stdout = open('output.txt', 'w', encoding='utf-8')
             print("Reject!")
-            print("SyntaxError: invalid token set (line", line + ")")
+            print("SyntaxError: invalid token set")
+            sys.stdout.close()
             break
 
         # shift & goto
@@ -93,7 +96,8 @@ while True:
 
     # 유효하지 않은 input token에 대한 예외처리
     elif nextSymbol not in terminal:
-        line = str(sys._getframe().f_lineno - 1)
+        sys.stdout = open('output.txt', 'w', encoding='utf-8')
         print("Reject!")
-        print("InputError: invalid input token", "'" + nextSymbol + "' (line", line + ")")
+        print("InputError: invalid input token", "'" + nextSymbol + "'")
+        sys.stdout.close()
         break
