@@ -2,8 +2,8 @@ import sys
 import pandas as pd
 from anytree import Node, RenderTree
 
-# SLR parsing table.csv을 불러와서 'table'에 저장
-table = pd.read_csv('SLR parsing table.csv', header=2, index_col=0)
+# SLR_parsing_table.csv을 불러와서 'table'에 저장
+table = pd.read_csv('SLR_parsing_table.csv', header=2, index_col=0)
 # terminal을 'terminal' 리스트에 저장
 terminal = list(table.columns[:22])
 terminal.append("''")
@@ -26,19 +26,19 @@ input.append('$')
 # parse tree의 root 노드 생성
 root = Node("CODE")
 treeNode = [root]
-# reduce할 때 사용된 cfg를 저장할 리스트
-reduceCFG = []
+# reduce할 때 사용된 cfg rule을 저장할 리스트
+reduceRule = []
 
-# pase tree 출력 함수
+# parse tree 출력 함수
 def printTree():
-    for grammar in reduceCFG:
+    for rule in reduceRule:
         # parent node 구하기
         for i in reversed(range(len(treeNode))):
             if (treeNode[i].name not in terminal and len(treeNode[i].children) == 0):
                 parentNode = treeNode[i]
                 break
         # child node 생성 및 parent node 지정
-        for symbol in grammar[2:]:
+        for symbol in rule[2:]:
             childNode = Node(symbol, parent=parentNode)
             treeNode.append(childNode)
 
@@ -83,13 +83,13 @@ while True:
             idx += 1
         # reduce
         elif action[0] == 'r':
-            g = cfg[int(action[1:])].split()
-            if g[-1] != "''":
-                for _ in range(len(g) - 2):
+            rule = cfg[int(action[1:])].split()
+            if rule[-1] != "''":
+                for _ in range(len(rule) - 2):
                     stack.pop()
-            goto = table.at[stack[-1], g[0]]
+            goto = table.at[stack[-1], rule[0]]
             stack.append(int(goto))
-            reduceCFG.insert(0, g)
+            reduceRule.insert(0, rule)
 
     # 유효하지 않은 input token에 대한 예외처리
     elif nextSymbol not in terminal:
