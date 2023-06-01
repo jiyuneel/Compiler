@@ -1,0 +1,1 @@
+class id lbrace vtype id assign literal semi vtype id semi rbrace vtype id assign literal semi

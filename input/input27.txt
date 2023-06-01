@@ -1,0 +1,1 @@
+vtype id lparen rparen lbrace if lparen boolstr comp boolstr comp boolstr rparen lbrace great assign boolstr semi id assign boolstr semi rbrace return character semi rbrace

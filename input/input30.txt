@@ -1,0 +1,1 @@
+class id lbrace rbrace vtype id lparen rparen lbrace return bolstr semi rbrace vtype id semi
