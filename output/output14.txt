@@ -1,0 +1,53 @@
+Accept!
+CODE
+├── CDECL
+│   ├── class
+│   ├── id
+│   ├── lbrace
+│   ├── ODECL
+│   │   └── ε
+│   └── rbrace
+└── CODE
+    ├── CDECL
+    │   ├── class
+    │   ├── id
+    │   ├── lbrace
+    │   ├── ODECL
+    │   │   ├── FDECL
+    │   │   │   ├── vtype
+    │   │   │   ├── id
+    │   │   │   ├── lparen
+    │   │   │   ├── ARG
+    │   │   │   │   └── ε
+    │   │   │   ├── rparen
+    │   │   │   ├── lbrace
+    │   │   │   ├── BLOCK
+    │   │   │   │   └── ε
+    │   │   │   ├── RETURN
+    │   │   │   │   ├── return
+    │   │   │   │   ├── RHS
+    │   │   │   │   │   └── literal
+    │   │   │   │   └── semi
+    │   │   │   └── rbrace
+    │   │   └── ODECL
+    │   │       ├── FDECL
+    │   │       │   ├── vtype
+    │   │       │   ├── id
+    │   │       │   ├── lparen
+    │   │       │   ├── ARG
+    │   │       │   │   └── ε
+    │   │       │   ├── rparen
+    │   │       │   ├── lbrace
+    │   │       │   ├── BLOCK
+    │   │       │   │   └── ε
+    │   │       │   ├── RETURN
+    │   │       │   │   ├── return
+    │   │       │   │   ├── RHS
+    │   │       │   │   │   └── literal
+    │   │       │   │   └── semi
+    │   │       │   └── rbrace
+    │   │       └── ODECL
+    │   │           └── ε
+    │   └── rbrace
+    └── CODE
+        └── ε

@@ -1,0 +1,43 @@
+Accept!
+CODE
+├── VDECL
+│   ├── vtype
+│   ├── ASSIGN
+│   │   ├── id
+│   │   ├── assign
+│   │   └── RHS
+│   │       └── EXPR
+│   │           ├── TERM
+│   │           │   ├── FACTOR
+│   │           │   │   └── id
+│   │           │   ├── multdiv
+│   │           │   └── TERM
+│   │           │       ├── FACTOR
+│   │           │       │   └── id
+│   │           │       ├── multdiv
+│   │           │       └── TERM
+│   │           │           └── FACTOR
+│   │           │               └── id
+│   │           ├── addsub
+│   │           └── EXPR
+│   │               └── TERM
+│   │                   └── FACTOR
+│   │                       ├── lparen
+│   │                       ├── EXPR
+│   │                       │   ├── TERM
+│   │                       │   │   └── FACTOR
+│   │                       │   │       └── id
+│   │                       │   ├── addsub
+│   │                       │   └── EXPR
+│   │                       │       ├── TERM
+│   │                       │       │   └── FACTOR
+│   │                       │       │       └── id
+│   │                       │       ├── addsub
+│   │                       │       └── EXPR
+│   │                       │           └── TERM
+│   │                       │               └── FACTOR
+│   │                       │                   └── id
+│   │                       └── rparen
+│   └── semi
+└── CODE
+    └── ε

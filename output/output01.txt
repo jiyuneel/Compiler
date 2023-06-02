@@ -1,0 +1,28 @@
+Accept!
+CODE
+├── CDECL
+│   ├── class
+│   ├── id
+│   ├── lbrace
+│   ├── ODECL
+│   │   ├── FDECL
+│   │   │   ├── vtype
+│   │   │   ├── id
+│   │   │   ├── lparen
+│   │   │   ├── ARG
+│   │   │   │   └── ε
+│   │   │   ├── rparen
+│   │   │   ├── lbrace
+│   │   │   ├── BLOCK
+│   │   │   │   └── ε
+│   │   │   ├── RETURN
+│   │   │   │   ├── return
+│   │   │   │   ├── RHS
+│   │   │   │   │   └── boolstr
+│   │   │   │   └── semi
+│   │   │   └── rbrace
+│   │   └── ODECL
+│   │       └── ε
+│   └── rbrace
+└── CODE
+    └── ε

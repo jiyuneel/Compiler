@@ -1,0 +1,34 @@
+Accept!
+CODE
+├── CDECL
+│   ├── class
+│   ├── id
+│   ├── lbrace
+│   ├── ODECL
+│   │   ├── VDECL
+│   │   │   ├── vtype
+│   │   │   ├── ASSIGN
+│   │   │   │   ├── id
+│   │   │   │   ├── assign
+│   │   │   │   └── RHS
+│   │   │   │       └── literal
+│   │   │   └── semi
+│   │   └── ODECL
+│   │       ├── VDECL
+│   │       │   ├── vtype
+│   │       │   ├── id
+│   │       │   └── semi
+│   │       └── ODECL
+│   │           └── ε
+│   └── rbrace
+└── CODE
+    ├── VDECL
+    │   ├── vtype
+    │   ├── ASSIGN
+    │   │   ├── id
+    │   │   ├── assign
+    │   │   └── RHS
+    │   │       └── literal
+    │   └── semi
+    └── CODE
+        └── ε

@@ -1,0 +1,46 @@
+Accept!
+CODE
+├── FDECL
+│   ├── vtype
+│   ├── id
+│   ├── lparen
+│   ├── ARG
+│   │   ├── vtype
+│   │   ├── id
+│   │   └── MOREARGS
+│   │       ├── comma
+│   │       ├── vtype
+│   │       ├── id
+│   │       └── MOREARGS
+│   │           ├── comma
+│   │           ├── vtype
+│   │           ├── id
+│   │           └── MOREARGS
+│   │               └── ε
+│   ├── rparen
+│   ├── lbrace
+│   ├── BLOCK
+│   │   ├── STMT
+│   │   │   ├── if
+│   │   │   ├── lparen
+│   │   │   ├── COND
+│   │   │   │   ├── boolstr
+│   │   │   │   └── COND'
+│   │   │   │       └── ε
+│   │   │   ├── rparen
+│   │   │   ├── lbrace
+│   │   │   ├── BLOCK
+│   │   │   │   └── ε
+│   │   │   ├── rbrace
+│   │   │   └── ELSE
+│   │   │       └── ε
+│   │   └── BLOCK
+│   │       └── ε
+│   ├── RETURN
+│   │   ├── return
+│   │   ├── RHS
+│   │   │   └── literal
+│   │   └── semi
+│   └── rbrace
+└── CODE
+    └── ε
